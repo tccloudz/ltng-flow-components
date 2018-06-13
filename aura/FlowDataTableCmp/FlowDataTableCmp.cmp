@@ -1,0 +1,26 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    
+    <!-- attributes -->
+    <aura:attribute name="dataArr" type="String[]"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columnsStr" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="1"/>
+    <aura:attribute name="key" type="String" default="id"/>
+    <aura:attribute name="recordId" type="String" />
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this }" action="{! c.doInit }"/>
+	
+    
+    
+    <div style="height: 300px">
+        <lightning:datatable keyField="{!v.key}"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                maxRowSelection="{! v.maxRowSelection }"
+            	onrowselection="{! c.setRecordId }"
+                 />
+    </div>
+	
+</aura:component>

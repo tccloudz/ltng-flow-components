@@ -1,0 +1,20 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    
+    <!--attributes-->
+    <aura:attribute name="recId" type="String" />
+    <aura:attribute name="showMsg" type="Boolean" default="false"/>
+    
+    
+    <!--handlers-->
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.saveSuccessful}"/>
+    
+    <aura:if isTrue="{!v.showMsg == FALSE}">
+    	<force:recordEdit aura:id="recEdit" recordId="{!v.recId}"/>
+		<lightning:button label="Save" onclick="{!c.saveRecord}"/>
+        
+        <aura:set attribute="else">
+      		<ui:message title="Success!" severity="confirm" closable="false">Record Save Successful!</ui:message>
+    	</aura:set>
+    </aura:if>
+	
+</aura:component>

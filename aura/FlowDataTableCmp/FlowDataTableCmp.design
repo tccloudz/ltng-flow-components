@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="dataArr" label="Data Array" required="true"/>
+    <design:attribute name="columnsStr" label="Columns" required="true"/>
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="key" label="Key" />
+</design:component>
