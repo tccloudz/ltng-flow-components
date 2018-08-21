@@ -6,8 +6,10 @@
     <aura:attribute name="columnsStr" type="String"/>
     <aura:attribute name="columns" type="List"/>
     <aura:attribute name="maxRowSelection" type="Integer" default="1"/>
+    <aura:attribute name="numOfRowsSelected" type="Integer" default="0"/>
     <aura:attribute name="key" type="String" default="id"/>
     <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="recordIds" type="String" />
     
     <!-- handlers-->
     <aura:handler name="init" value="{!this }" action="{! c.doInit }"/>

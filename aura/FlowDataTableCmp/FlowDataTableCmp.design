@@ -2,5 +2,9 @@
     <design:attribute name="dataArr" label="Data Array" required="true"/>
     <design:attribute name="columnsStr" label="Columns" required="true"/>
     <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="recordIds" label="Record Id List(CSV)" />
     <design:attribute name="key" label="Key" />
+    <design:attribute name="maxRowSelection" label="Max Rows That Can be selected" />
+    <design:attribute name="numOfRowsSelected" label="Num of Rows Selected" />
+    
 </design:component>

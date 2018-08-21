@@ -71,10 +71,18 @@
       
         var selectedRows = event.getParam('selectedRows');
         var key = component.get('v.key');
+        var recIds = '';
         if(selectedRows){
             if(selectedRows.length === 1){
                 console.log(selectedRows[0][key]);
                 component.set('v.recordId', selectedRows[0][key]);
+            }
+            else{
+                for(let i = 0; i < selectedRows.length; i++){
+                    recIds += selectedRows[i][key] + ',';
+                }
+                component.set('v.recordIds', recIds);
+                component.set('v.numOfRowsSelected', selectedRows.length);
             }
         }
     },
