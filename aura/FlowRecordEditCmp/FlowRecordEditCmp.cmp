@@ -3,18 +3,58 @@
     <!--attributes-->
     <aura:attribute name="recId" type="String" />
     <aura:attribute name="showMsg" type="Boolean" default="false"/>
+    <aura:attribute name="editFormType" type="String" default="recordEdit" description="recordEdit or recordForm"/>
+    <aura:attribute name="fieldList" type="String" />
+    <aura:attribute name="fieldListArr" type="String[]" />
+    <aura:attribute name="objApiName" type="String" />
+    <aura:attribute name="numOfCols" type="Integer" default="2" />
     
-    
+
     <!--handlers-->
     <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.saveSuccessful}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
-    <aura:if isTrue="{!v.showMsg == FALSE}">
+    
+    <aura:if isTrue="{!v.showMsg == TRUE}">
+        <ui:message title="Success!" severity="confirm" closable="false">Record Save Successful!</ui:message>
+    </aura:if>
+    
+    <!--Displays when recordEdit is selected from flow-->
+    <aura:if isTrue="{!and(v.showMsg == FALSE, v.editFormType == 'recordEdit')}">
     	<force:recordEdit aura:id="recEdit" recordId="{!v.recId}"/>
 		<lightning:button label="Save" onclick="{!c.saveRecord}"/>
+    </aura:if>
+    
+    <!--Removing lightning:recordForm component and replacing with lightning:recordEditForm
+		due to possible bug when using component with flow screens-->
+    <!--<aura:if isTrue="{!and(v.showMsg == FALSE, v.editFormType == 'recordForm')}">
+         <lightning:recordForm 
+         recordId="{!v.recId}"
+         objectApiName="{!v.objApiName}"
+         layoutType="Full"
+         columns="2"
+         mode="edit"
+         />
+    </aura:if>-->
+    
+    
+    
+    <!--Displays when recordForm is selected from flow-->
+    <aura:if isTrue="{!and(v.editFormType == 'recordForm')}" >
+        <lightning:recordEditForm recordId="{!v.recId}" objectApiName="{!v.objApiName}" onsuccess="{!c.saveSuccessful}">
+            
+            <lightning:messages />
+            
+            <aura:iteration items="{!v.fieldListArr}" var="fld">
+                <lightning:inputField fieldName="{!fld}" />
+            </aura:iteration>
+            
+            <div class="slds-m-top_medium">
+                <lightning:button variant="brand" type="submit" name="save" label="Save" />
+            </div>
+
+        </lightning:recordEditForm>
         
-        <aura:set attribute="else">
-      		<ui:message title="Success!" severity="confirm" closable="false">Record Save Successful!</ui:message>
-    	</aura:set>
     </aura:if>
 	
 </aura:component>

@@ -1,3 +1,6 @@
 <design:component >
-	<design:attribute name="recId" label="Record Id" />
+	<design:attribute name="recId" label="Record Id" required="true"/>
+    <design:attribute name="editFormType" label="Edit Form Type" description="(recordEdit or recordForm)" required="true"/>
+    <design:attribute name="fieldList" label="Edit Field List" description="List of comma-separated field api names" />
+    <design:attribute name="objApiName" label="Object API Name" description="The api name of the object record to be edited" />
 </design:component>
