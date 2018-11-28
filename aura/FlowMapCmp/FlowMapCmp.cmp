@@ -1,0 +1,15 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+	
+    <!--Attributes-->
+    <aura:attribute type="String[]" name="markerArr" />
+    <aura:attribute type="Object" name="mapMarkers" />
+    <aura:attribute type="String" name="title" default="Your Map"/>
+    
+    <!--Handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+
+    <lightning:map mapMarkers="{!v.mapMarkers}" markersTitle="{!v.title}" />
+    
+    
+</aura:component>

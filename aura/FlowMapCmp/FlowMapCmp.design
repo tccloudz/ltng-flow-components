@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="markerArr" label="Map Data Array" required="true"/>
+    <design:attribute name="title" label="Map Title" required="false"/>
+</design:component>
