@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+        
+    <!--Attributes-->
+    <aura:attribute type="String[]" name="cmpAttrArr" />
+
+    <lightning:tabset >
+        <aura:iteration items="{!v.cmpAttrArr}" var="cmpAttr">
+            <c:FlowTab cmpAttrs="{!cmpAttr}"/>
+        </aura:iteration>
+    </lightning:tabset>
+	
+</aura:component>

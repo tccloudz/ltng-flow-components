@@ -1,0 +1,17 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    
+    <!--Attributes-->
+    <aura:attribute type="String" name="tabName" default=""/>
+    <aura:attribute type="String" name="cmpAttrs" default=""/>
+    <aura:attribute type="Boolean" name="showTab" default="true" />
+    
+    <!--Handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.showTab}">
+        <lightning:tab label="{!v.tabName}" aura:id="lTab">
+            {!v.body}
+        </lightning:tab>
+    </aura:if>
+    
+</aura:component>
