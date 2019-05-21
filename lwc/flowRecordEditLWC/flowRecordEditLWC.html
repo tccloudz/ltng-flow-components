@@ -1,0 +1,28 @@
+<template>
+
+	<lightning-card title="Edit Record">
+
+		<div if:true={showMsg}>
+
+			<lightning-formatted-rich-text value={successMsg}></lightning-formatted-rich-text>
+
+		</div>
+
+
+		<br/>
+
+		<lightning-record-edit-form record-id={recId} object-api-name={objApiName} onsuccess={handleSuccess}>
+			<template for:each={fieldListArr} for:item='field'>
+				<lightning-input-field field-name={field} key={field}>
+				</lightning-input-field>
+			</template>
+			<br/>
+			<br/>
+			<lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Save">
+			</lightning-button>
+		</lightning-record-edit-form>
+
+
+	</lightning-card>
+
+</template>

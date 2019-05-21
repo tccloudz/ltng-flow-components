@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="FlowRecordEditLWC">
+    <apiVersion>45.0</apiVersion>
+    <isExposed>true</isExposed>
+    
+    
+     <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    
+    
+    
+    <targetConfigs>  
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
+            <property name="recId" type="String" label="Record Id"/>
+            <property name="objApiName" type="String" label="Object API Name"/>
+            <property name="fieldList" type="String"  label="List of comma-separated fields" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
